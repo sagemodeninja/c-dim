@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 int max(int a, int b);
+void scan(char title[], int* var);
 int daysInMonth(int month, int year);
 
 int main()
@@ -11,14 +12,10 @@ int main()
 
 	printf("This program returns the number of days in a month.\n\n");
 
-	printf("Enter value for month: ");
-	scanf("%d", &month);
-
-	printf("Enter value for year: ");
-	scanf("%d", &year);
+	scan("month", &month);
+	scan("year", &year);
 	
 	dim = daysInMonth(month, year);
-
 	printf("\n%d\n", dim);
 
 	return 0;
@@ -27,6 +24,16 @@ int main()
 int max (int a, int b)
 {
 	return (a > b) ? a : b;
+}
+
+void scan(char title[], int* var)
+{
+	int input;
+
+	printf("Enter value for %s: ", title);
+	scanf("%d", &input);
+
+	*var = input;
 }
 
 int daysInMonth(int month, int year) 
