@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 int max(int a, int b);
-void scan(char title[], int* var);
+void scan(char name[], int* var);
 int daysInMonth(int month, int year);
 
 int main()
@@ -26,11 +26,11 @@ int max (int a, int b)
 	return (a > b) ? a : b;
 }
 
-void scan(char title[], int* var)
+void scan(char name[], int* var)
 {
 	int input;
 
-	printf("Enter value for %s: ", title);
+	printf("Enter value for %s: ", name);
 	scanf("%d", &input);
 
 	*var = input;
