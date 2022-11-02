@@ -3,6 +3,7 @@
 #include <stdio.h>
 
 int max(int a, int b);
+int daysInMonth(int month, int year);
 
 int main()
 {
@@ -16,9 +17,7 @@ int main()
 	printf("Enter value for year: ");
 	scanf("%d", &year);
 	
-	int centennial = (year % 100) == 0;
-	int leap = year % 4 * max(1, centennial * 100) == 0;
-	dim = 30 + (month + month / 8) % 2 - max(0, 2 * (month == 2) - leap);
+	dim = daysInMonth(month, year);
 
 	printf("\n%d\n", dim);
 
@@ -28,4 +27,12 @@ int main()
 int max (int a, int b)
 {
 	return (a > b) ? a : b;
+}
+
+int daysInMonth(int month, int year) 
+{
+	int centennial = (year % 100) == 0;
+	int leap = year % 4 * max(1, centennial * 100) == 0;
+
+	return 30 + (month + month / 8) % 2 - max(0, 2 * (month == 2) - leap);
 }
