@@ -32,12 +32,8 @@ int max (int a, int b)
 
 void scan(char name[], int* var)
 {
-   int input;
-
    printf("Enter value for %s: ", name);
-   scanf("%d", &input);
-
-   *var = input;
+   scanf("%d", var);
 }
 
 int daysInMonth(int month, int year) 
