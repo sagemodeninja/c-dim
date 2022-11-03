@@ -1,45 +1,49 @@
-// This program returns the number of days in a month.
-// Developed by Gary Antier 2022
+/* 
+This program returns the number of days in a month.
+Author:  Gary Antier
+Date:    2022-11-02
+*/
+
 #include <stdio.h>
 
-int max(int a, int b);
-void scan(char name[], int* var);
-int daysInMonth(int month, int year);
+int max(int, int);
+void scan(char[], int*);
+int daysInMonth(int, int);
 
 int main()
 {
-	int month, year, dim;
+   int month, year, dim;
 
-	printf("This program returns the number of days in a month.\n\n");
+   printf("This program returns the number of days in a month.\n\n");
 
-	scan("month", &month);
-	scan("year", &year);
-	
-	dim = daysInMonth(month, year);
-	printf("\n%d\n", dim);
+   scan("month", &month);
+   scan("year", &year);
 
-	return 0;
+   dim = daysInMonth(month, year);
+   printf("\n%d\n", dim);
+
+   return 0;
 }
 
 int max (int a, int b)
 {
-	return (a > b) ? a : b;
+   return (a > b) ? a : b;
 }
 
 void scan(char name[], int* var)
 {
-	int input;
+   int input;
 
-	printf("Enter value for %s: ", name);
-	scanf("%d", &input);
+   printf("Enter value for %s: ", name);
+   scanf("%d", &input);
 
-	*var = input;
+   *var = input;
 }
 
 int daysInMonth(int month, int year) 
 {
-	int centennial = (year % 100) == 0;
-	int leap = year % 4 * max(1, centennial * 100) == 0;
+   int centennial = (year % 100) == 0;
+   int leap = year % 4 * max(1, centennial * 100) == 0;
 
-	return 30 + (month + month / 8) % 2 - max(0, 2 * (month == 2) - leap);
+   return 30 + (month + month / 8) % 2 - max(0, 2 * (month == 2) - leap);
 }
